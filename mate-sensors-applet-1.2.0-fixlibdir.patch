@@ -1,0 +1,9 @@
+--- mate-sensors-applet-1.2.0/SensorsApplet.server.in.in~	2012-03-11 18:56:07.000000000 +0000
++++ mate-sensors-applet-1.2.0/SensorsApplet.server.in.in	2012-06-06 12:45:02.663054512 +0000
+@@ -1,5 +1,5 @@
+ <oaf_info>
+-<oaf_server iid="OAFIID:SensorsApplet_Factory" type="exe" location="@LIBEXECDIR@/@PACKAGE@">
++<oaf_server iid="OAFIID:SensorsApplet_Factory" type="exe" location="@LIBEXECDIR@/sensors-applet/@PACKAGE@">
+ 
+         <oaf_attribute name="repo_ids" type="stringv">
+                 <item value="IDL:MateComponent/GenericFactory:1.0"/>
