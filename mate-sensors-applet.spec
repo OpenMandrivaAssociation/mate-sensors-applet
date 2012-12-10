@@ -1,11 +1,11 @@
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
-Version:	1.2.0
+Version:	1.4.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://mate-desktop.org
-Source0:	http://pub.mate-desktop.org/releases/1.2/%{name}-%{version}.tar.xz
+Source0:	http://pub.mate-desktop.org/releases/1.4/%{name}-%{version}.tar.xz
 Patch0:		sensors-applet-2.2.3-fix-linkage.patch
 Patch1:		mate-sensors-applet-1.2.0-fixlibdir.patch
 
@@ -68,4 +68,11 @@ mkdir -p %{buildroot}%{_libdir}/mate-sensors-applet
 %files devel
 %{_includedir}/mate-sensors-applet/*
 %{_libdir}/*.so
+
+
+
+%changelog
+* Wed Jun 06 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.2.0-1
++ Revision: 802938
+- imported package mate-sensors-applet
 
