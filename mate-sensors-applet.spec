@@ -58,7 +58,7 @@ NOCONFIGURE=yes ./autogen.sh
 	--enable-libnotify \
 	--with-nvidia \
 	--with-aticonfig
-quit
+
 %make
 
 %install
