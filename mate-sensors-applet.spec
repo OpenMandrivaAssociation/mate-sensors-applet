@@ -15,6 +15,7 @@ Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.
 Patch0:		sensors-applet-2.2.3-fix-linkage.patch
 BuildRequires:	intltool
 BuildRequires:	mate-common
+BuildRequires:	xsltproc
 BuildRequires:	yelp-tools
 BuildRequires:	lm_sensors-devel
 BuildRequires:	pkgconfig(dbus-glib-1)
