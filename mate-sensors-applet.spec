@@ -56,8 +56,9 @@ NOCONFIGURE=yes ./autogen.sh
 %configure2_5x \
 	--disable-static \
 	--enable-libnotify \
-	--with-nvidia
-
+	--with-nvidia \
+	--with-aticonfig
+quit
 %make
 
 %install
