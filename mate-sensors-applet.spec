@@ -14,7 +14,6 @@ Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		sensors-applet-2.2.3-fix-linkage.patch
 BuildRequires:	intltool
-BuildRequires:	itstool
 BuildRequires:	mate-common
 BuildRequires:	yelp-tools
 BuildRequires:	lm_sensors-devel
