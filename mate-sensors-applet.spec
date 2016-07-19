@@ -6,8 +6,8 @@
 
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
-Version:	1.8.0
-Release:	2
+Version:	1.14.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
@@ -19,7 +19,7 @@ BuildRequires:	xsltproc
 BuildRequires:	yelp-tools
 BuildRequires:	lm_sensors-devel
 BuildRequires:	pkgconfig(dbus-glib-1)
-BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libatasmart)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
@@ -57,7 +57,8 @@ NOCONFIGURE=yes ./autogen.sh
 	--disable-static \
 	--enable-libnotify \
 	--with-nvidia \
-	--with-aticonfig
+	--with-aticonfig \
+	--with-gtk=3.0
 
 %make
 
@@ -80,10 +81,12 @@ mkdir -p %{buildroot}%{_libdir}/mate-sensors-applet
 %{_libdir}/mate-sensors-applet/plugins/libsmu-sys.so
 %{_libdir}/mate-sensors-applet/plugins/liblibsensors.so
 %{_libdir}/mate-sensors-applet/plugins/libsonypi.so
+%{_libdir}/mate-sensors-applet/plugins/libmbmon.so
+%{_libdir}/mate-sensors-applet/plugins/libudisks.so
 %{_datadir}/dbus-1/services/org.mate.panel.applet.SensorsAppletFactory.service
 %{_datadir}/glib-2.0/schemas/org.mate.sensors-applet.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.mate.sensors-applet.sensor.gschema.xml
-%{_datadir}/mate-panel/applets/org.mate.applets.sensors-applet.mate-panel-applet
+%{_datadir}/mate-panel/applets/org.mate.applets.SensorsApplet.mate-panel-applet
 %{_datadir}/mate-sensors-applet/ui/SensorsApplet.xml
 %{_libexecdir}/mate-sensors-applet
 %{_datadir}/pixmaps/*
