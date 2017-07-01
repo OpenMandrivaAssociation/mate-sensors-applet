@@ -6,9 +6,9 @@
 
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
-Version:	1.14.0
+Version:	1.18.2
 Release:	1
-License:	GPLv2+
+License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
@@ -50,26 +50,24 @@ This package contains development files for mate-sensors-applet.
 %prep
 %setup -q
 %apply_patches
-NOCONFIGURE=yes ./autogen.sh
 
 %build
-%configure2_5x \
-	--disable-static \
+#NOCONFIGURE=yes ./autogen.sh
+%configure \
 	--enable-libnotify \
 	--with-nvidia \
 	--with-aticonfig \
-	--with-gtk=3.0
-
+	%{nil}
 %make
 
 %install
-mkdir -p %{buildroot}%{_libdir}/mate-sensors-applet
 %makeinstall_std
 
+# locales
 %find_lang %{name} --with-gnome --all-name
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/mate-sensors-applet/plugins/libacpi.so
 %{_libdir}/mate-sensors-applet/plugins/libaticonfig.so
 %{_libdir}/mate-sensors-applet/plugins/libeee.so
