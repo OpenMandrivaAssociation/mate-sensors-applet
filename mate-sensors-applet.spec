@@ -25,7 +25,7 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libatasmart)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
-BuildRequires:  pkgconfig(udisks)
+BuildRequires:  pkgconfig(udisks2)
 BuildRequires:	xsltproc
 BuildRequires:	yelp-tools
 
