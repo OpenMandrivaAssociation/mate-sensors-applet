@@ -6,70 +6,43 @@
 
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
-Version:	1.14.0
+Version:	1.18.2
 Release:	1
-License:	GPLv2+
+License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		sensors-applet-2.2.3-fix-linkage.patch
+
 BuildRequires:	intltool
 BuildRequires:	mate-common
-BuildRequires:	xsltproc
-BuildRequires:	yelp-tools
 BuildRequires:	lm_sensors-devel
+BuildRequires:  pkgconfig(cairo) >= 1.0.4
 BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	pkgconfig(gio-2.0)
+BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libatasmart)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
+BuildRequires:  pkgconfig(udisks2)
+BuildRequires:	xsltproc
+BuildRequires:	yelp-tools
 
 %description
-MATE Sensors Applet is an applet for the MATE Panel to display readings
-from hardware sensors, including CPU and system temperatures, fan speeds and
-voltage readings under Linux.
+The MATE Desktop Environment is the continuation of GNOME 2. It provides an
+intuitive and attractive desktop environment using traditional metaphors for
+Linux and other Unix-like operating systems.
 
-Interfaces via the Linux kernel i2c modules.
+MATE is under active development to add support for new technologies while
+preserving a traditional desktop experience.
 
-%package -n %{libname}
-Summary:	mate-sensors-applet libraries
-Group:		System/Libraries
-
-%description -n %{libname}
-This is the shared library parts of %{name}.
-
-%package -n %{devname}
-Summary:	Development files for mate-sensors-applet
-Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
-
-%description -n %{devname}
-This package contains development files for mate-sensors-applet.
-
-%prep
-%setup -q
-%apply_patches
-NOCONFIGURE=yes ./autogen.sh
-
-%build
-%configure2_5x \
-	--disable-static \
-	--enable-libnotify \
-	--with-nvidia \
-	--with-aticonfig \
-	--with-gtk=3.0
-
-%make
-
-%install
-mkdir -p %{buildroot}%{_libdir}/mate-sensors-applet
-%makeinstall_std
-
-%find_lang %{name} --with-gnome --all-name
+MATE Sensors Applet is an applet for the MATE Panel to display readings from
+hardware sensors, including CPU temperature, fan speeds and voltage readings
+under Linux.
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/mate-sensors-applet/plugins/libacpi.so
 %{_libdir}/mate-sensors-applet/plugins/libaticonfig.so
 %{_libdir}/mate-sensors-applet/plugins/libeee.so
@@ -92,10 +65,52 @@ mkdir -p %{buildroot}%{_libdir}/mate-sensors-applet
 %{_datadir}/pixmaps/*
 %{_iconsdir}/hicolor/*/*/*.png
 
+#---------------------------------------------------------------------------
+
+%package -n %{libname}
+Summary:	mate-sensors-applet libraries
+Group:		System/Libraries
+
+%description -n %{libname}
+This package contains the shared libraries used by %{name}.
+
 %files -n %{libname}
 %{_libdir}/libmate-sensors-applet-plugin.so.%{major}*
+
+#---------------------------------------------------------------------------
+
+%package -n %{devname}
+Summary:	Development files for mate-sensors-applet
+Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+
+%description -n %{devname}
+This package contains libraries and includes files for developing programs
+based on %{name}.
 
 %files -n %{devname}
 %{_includedir}/mate-sensors-applet/*
 %{_libdir}/*.so
+
+#---------------------------------------------------------------------------
+
+%prep
+%setup -q
+%apply_patches
+
+%build
+#NOCONFIGURE=yes ./autogen.sh
+%configure \
+	--enable-libnotify \
+	--with-nvidia \
+	--with-aticonfig \
+	%{nil}
+%make
+
+%install
+%makeinstall_std
+
+# locales
+%find_lang %{name} --with-gnome --all-name
 
