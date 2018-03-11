@@ -6,8 +6,8 @@
 
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
-Version:	1.18.2
-Release:	2
+Version:	1.20.1
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/Other
 Url:		http://mate-desktop.org
@@ -113,4 +113,3 @@ based on %{name}.
 
 # locales
 %find_lang %{name} --with-gnome --all-name
-
