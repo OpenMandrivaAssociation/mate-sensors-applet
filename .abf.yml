@@ -1,5 +1,6 @@
 removed_sources:
   mate-sensors-applet-1.14.0.tar.xz: 3662e22a2d960ebb145e43b669dc320543cb1e06
   mate-sensors-applet-1.18.2.tar.xz: 415cc177b1e83015324e2ef00c2252be244024f6
-sources:
   mate-sensors-applet-1.20.1.tar.xz: b509ab0568d5c511df38f539717ed432da167ce8
+sources:
+  mate-sensors-applet-1.20.3.tar.xz: 4d68d2bd6a0aa4517e3731d73221d36c7b2932b3

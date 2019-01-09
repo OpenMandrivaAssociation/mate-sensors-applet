@@ -6,7 +6,7 @@
 
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
-Version:	1.20.1
+Version:	1.20.3
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/Other
@@ -97,7 +97,7 @@ based on %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopathc -p1
 
 %build
 #NOCONFIGURE=yes ./autogen.sh
@@ -106,10 +106,10 @@ based on %{name}.
 	--with-nvidia \
 	--with-aticonfig \
 	%{nil}
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # locales
 %find_lang %{name} --with-gnome --all-name
