@@ -18,8 +18,8 @@
      static GQuark quark = 0;
      gchar *string;
  
---- a/sensors-applet-plugin.h
-+++ b/sensors-applet-plugin.h
+--- a/sensors-applet/sensors-applet-plugin.h
++++ b/sensors-applet/sensors-applet-plugin.h
 @@ -21,10 +21,10 @@
  
  #include <sensors-applet/sensors-applet-sensor.h>
