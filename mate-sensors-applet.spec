@@ -25,7 +25,6 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libatasmart)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
-BuildRequires:  pkgconfig(udisks2)
 BuildRequires:	xsltproc
 BuildRequires:	yelp-tools
 
@@ -45,7 +44,6 @@ under Linux.
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/mate-sensors-applet/plugins/libacpi.so
 %{_libdir}/mate-sensors-applet/plugins/libaticonfig.so
-%{_libdir}/mate-sensors-applet/plugins/libeee.so
 %{_libdir}/mate-sensors-applet/plugins/libhddtemp.so
 %{_libdir}/mate-sensors-applet/plugins/libi8k.so
 %{_libdir}/mate-sensors-applet/plugins/libibm-acpi.so
