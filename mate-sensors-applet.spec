@@ -97,7 +97,7 @@ based on %{name}.
 
 %prep
 %setup -q
-%autopathc -p1
+%autopatch -p1
 
 %build
 #NOCONFIGURE=yes ./autogen.sh
