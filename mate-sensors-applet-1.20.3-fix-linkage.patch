@@ -1,5 +1,5 @@
---- ./lib/sensors-applet-plugin.c.orig	2009-03-15 18:35:51.000000000 +0100
-+++ ./lib/sensors-applet-plugin.c	2009-03-15 18:38:51.000000000 +0100
+--- a/lib/sensors-applet-plugin.c
++++ b/lib/sensors-applet-plugin.c
 @@ -26,8 +26,6 @@
  #include <unistd.h>
  #endif /* HAVE_UNISTD_H */
@@ -9,17 +9,17 @@
  /* recursive function to find sensors in a given path */
  void sensors_applet_plugin_find_sensors(GList **sensors,
                                          const gchar *path,
-@@ -64,7 +62,7 @@
+@@ -61,7 +59,7 @@
  }
  
  /* for error handling */
 -GQuark sensors_applet_plugin_error_quark(void) {
 +GQuark sensors_applet_plugin_error_quark(const gchar *plugin_name) {
- 	static GQuark quark = 0;
- 	gchar *string;
-         
---- ./sensors-applet/sensors-applet-plugin.h.orig	2009-03-15 18:39:43.000000000 +0100
-+++ ./sensors-applet/sensors-applet-plugin.h	2009-03-15 18:41:11.000000000 +0100
+     static GQuark quark = 0;
+     gchar *string;
+ 
+--- a/sensors-applet-plugin.h
++++ b/sensors-applet-plugin.h
 @@ -21,10 +21,10 @@
  
  #include <sensors-applet/sensors-applet-sensor.h>
