@@ -6,14 +6,15 @@
 
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
-Version:	1.22.1
-Release:	2
+Version:	1.24.0
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/Other
 Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		mate-sensors-applet-1.20.3-fix-linkage.patch
 
+BuildRequires:	autoconf-archive
 BuildRequires:	intltool
 BuildRequires:	mate-common
 BuildRequires:	lm_sensors-devel
