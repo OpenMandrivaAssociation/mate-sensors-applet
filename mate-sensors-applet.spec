@@ -12,7 +12,7 @@ License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/Other
 Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		mate-sensors-applet-1.20.3-fix-linkage.patch
+#Patch0:		mate-sensors-applet-1.20.3-fix-linkage.patch
 
 BuildRequires:	autoconf-archive
 BuildRequires:	intltool
