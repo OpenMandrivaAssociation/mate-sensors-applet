@@ -12,7 +12,7 @@ License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/Other
 Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
-#Patch0:		mate-sensors-applet-1.20.3-fix-linkage.patch
+Patch0:		mate-sensors-applet-1.20.3-fix-linkage.patch
 
 BuildRequires:	autoconf-archive
 BuildRequires:	intltool
@@ -45,7 +45,7 @@ under Linux.
 %files -f %{name}.lang
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/mate-sensors-applet/plugins/libacpi.so
-%{_libdir}/mate-sensors-applet/plugins/libaticonfig.so
+#{_libdir}/mate-sensors-applet/plugins/libaticonfig.so
 %{_libdir}/mate-sensors-applet/plugins/libhddtemp.so
 %{_libdir}/mate-sensors-applet/plugins/libi8k.so
 %{_libdir}/mate-sensors-applet/plugins/libibm-acpi.so

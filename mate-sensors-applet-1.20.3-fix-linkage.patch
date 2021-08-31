@@ -1,5 +1,7 @@
---- a/lib/sensors-applet-plugin.c
-+++ b/lib/sensors-applet-plugin.c
+Index: mate-sensors-applet-1.20.0/lib/sensors-applet-plugin.c
+===================================================================
+--- mate-sensors-applet-1.20.0/lib/sensors-applet-plugin.c
++++ mate-sensors-applet-1.20.0/lib/sensors-applet-plugin.c	2018-02-15 00:38:09.010446334 +0300
 @@ -26,8 +26,6 @@
  #include <unistd.h>
  #endif /* HAVE_UNISTD_H */
@@ -16,10 +18,12 @@
 -GQuark sensors_applet_plugin_error_quark(void) {
 +GQuark sensors_applet_plugin_error_quark(const gchar *plugin_name) {
      static GQuark quark = 0;
-     gchar *string;
  
---- a/sensors-applet/sensors-applet-plugin.h
-+++ b/sensors-applet/sensors-applet-plugin.h
+     if (quark == 0) {
+Index: mate-sensors-applet-1.20.0/sensors-applet/sensors-applet-plugin.h
+===================================================================
+--- mate-sensors-applet-1.20.0/sensors-applet/sensors-applet-plugin.h
++++ mate-sensors-applet-1.20.0/sensors-applet/sensors-applet-plugin.h	2018-02-15 00:41:31.166105683 +0300
 @@ -21,10 +21,10 @@
  
  #include <sensors-applet/sensors-applet-sensor.h>
