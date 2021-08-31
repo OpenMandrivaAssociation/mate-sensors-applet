@@ -45,7 +45,7 @@ under Linux.
 %files -f %{name}.lang
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/mate-sensors-applet/plugins/libacpi.so
-%{_libdir}/mate-sensors-applet/plugins/libaticonfig.so
+#{_libdir}/mate-sensors-applet/plugins/libaticonfig.so
 %{_libdir}/mate-sensors-applet/plugins/libhddtemp.so
 %{_libdir}/mate-sensors-applet/plugins/libi8k.so
 %{_libdir}/mate-sensors-applet/plugins/libibm-acpi.so
