@@ -13,12 +13,11 @@ Group:		Graphical desktop/Other
 Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:		mate-sensors-applet-1.20.3-fix-linkage.patch
-
 BuildRequires:	autoconf-archive
 BuildRequires:	intltool
 BuildRequires:	mate-common
 BuildRequires:	lm_sensors-devel
-BuildRequires:  pkgconfig(cairo) >= 1.0.4
+BuildRequires:	pkgconfig(cairo) >= 1.0.4
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gio-2.0)
 BuildRequires:	pkgconfig(glib-2.0)
@@ -29,6 +28,7 @@ BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
 BuildRequires:	pkgconfig(udisks2)
 BuildRequires:	xsltproc
 BuildRequires:	yelp-tools
+Requires:	hddtemp
 
 %description
 The MATE Desktop Environment is the continuation of GNOME 2. It provides an
@@ -96,16 +96,18 @@ based on %{name}.
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 #NOCONFIGURE=yes ./autogen.sh
 %configure \
 	--enable-libnotify \
 	--with-nvidia \
-	--with-aticonfig \
-	%{nil}
+	--with-aticonfig
+
+# remove unused-direct-shlib-dependency
+sed -i -e 's! -shared ! -Wl,--as-needed\0!g' libtool
+
 %make_build
 
 %install
