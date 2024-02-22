@@ -1,4 +1,4 @@
-%define url_ver %(echo %{version}|cut -d. -f1,2)
+%define mate_ver	%(echo %{version}|cut -d. -f1,2)
 
 %define major	0
 %define libname	%mklibname %{name}-plugin %{major}
@@ -6,13 +6,13 @@
 
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
-Version:	1.26.0
-Release:	2
+Version:	1.28.0
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/Other
-Url:		http://mate-desktop.org
-Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		mate-sensors-applet-1.20.3-fix-linkage.patch
+Url:		https://mate-desktop.org
+Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
+Patch0:		mate-sensors-applet-1.28.0-fix-linkage.patch
 BuildRequires:	autoconf-archive
 BuildRequires:	intltool
 BuildRequires:	mate-common
@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
 BuildRequires:	pkgconfig(udisks2)
 BuildRequires:	xsltproc
 BuildRequires:	yelp-tools
+
 Requires:	hddtemp
 
 %description
@@ -115,3 +116,4 @@ sed -i -e 's! -shared ! -Wl,--as-needed\0!g' libtool
 
 # locales
 %find_lang %{name} --with-gnome --all-name
+
