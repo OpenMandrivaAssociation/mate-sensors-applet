@@ -13,6 +13,10 @@ Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
 Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
 Patch0:		mate-sensors-applet-1.28.0-fix-linkage.patch
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	autoconf-archive
 BuildRequires:	intltool
 BuildRequires:	mate-common
