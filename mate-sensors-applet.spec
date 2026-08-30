@@ -7,7 +7,7 @@
 Summary:	Detailed hardware monitoring applet for MATE
 Name:		mate-sensors-applet
 Version:	1.28.0
-Release:	1
+Release:	2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
@@ -111,7 +111,7 @@ based on %{name}.
 	--with-aticonfig
 
 # remove unused-direct-shlib-dependency
-sed -i -e 's! -shared ! -Wl,--as-needed\0!g' libtool
+#sed -i -e 's! -shared ! -Wl,--as-needed\0!g' libtool
 
 %make_build
 
